@@ -8,7 +8,7 @@ setup(
     author='Robert Stein',
     author_email='robert@blueshoe.de',
     url='https://github.com/SteinRobert/python-restcountries',
-    download_url='https://github.com/SteinRobert/python-restcountries/tarball/',
+    download_url='https://github.com/SteinRobert/python-restcountries/tarball/0.1a',
     packages=find_packages(),
     dependencies=['future', 'requests'],
     description='Python API Wrapper for restcountries.eu',
