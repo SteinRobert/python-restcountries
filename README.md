@@ -1,7 +1,7 @@
 # Python Rest Countries
 
 
-This is a simple python wrapper for the API of [http://rest-coutries.eu](http://rest-coutries.eu). 
+This is a simple python wrapper for the API of [http://restcoutries.eu](http://restcoutries.eu). 
 If there are any issues, please use this repository to contact me about it.
  
 ## Usage
