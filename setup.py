@@ -14,5 +14,9 @@ setup(
     description='Python API Wrapper for restcountries.eu',
     license='Unlicense',
     keywords=['api', 'wrapper', 'country', 'countries'],
+    install_requires=[
+        'requests',
+        'future'
+    ],
     long_description=open('README.rst').read()
 )
