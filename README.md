@@ -3,10 +3,13 @@
 
 This is a simple python wrapper for the API of [http://restcountries.eu](http://restcountries.eu). 
 If there are any issues, please use this repository to contact me about it.
- 
+
+## Installation
+    pip install python-restcountries
+
 ## Usage
  Just import the API Wrapper and start using it!
-    
+
     from restcountries import RestCountryApi as rapi
     
     def foo(name):
