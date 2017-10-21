@@ -140,7 +140,6 @@ class Country(object):
         return u'{}'.format(self.name)
 
     def __init__(self, country_data):
-        print(country_data)
         self.top_level_domain = country_data['topLevelDomain']
         self.alpha2_code = country_data['alpha2Code']
         self.alpha3_code = country_data['alpha3Code']
