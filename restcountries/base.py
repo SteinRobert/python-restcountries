@@ -3,10 +3,10 @@ import requests
 import json
 from future.utils import python_2_unicode_compatible
 
-BASE_URI = 'https://restcountries.eu/rest/v1'
-
 
 class RestCountryApi(object):
+    BASE_URI = 'https://restcountries.eu/rest/v1'
+    QUERY_SEPARATOR = ','
 
     @classmethod
     def _get_country_list(cls, resource, term=''):
@@ -16,7 +16,7 @@ class RestCountryApi(object):
         :param term - search term provided by the user of this package
         :returns - either a Country object or a list of Countries
         """
-        uri = '{}{}/{}'.format(BASE_URI, resource, term)  # build URL
+        uri = '{}{}/{}'.format(cls.BASE_URI, resource, term)  # build URL
         response = requests.get(uri)
         if response.status_code == 200:
             result_list = []
@@ -71,7 +71,7 @@ class RestCountryApi(object):
 
     @classmethod
     def get_country_by_country_code(cls, alpha):
-        """Returns a list of countries.
+        """Returns a `Country` object by alpha code.
 
         :param alpha - Alpha code string of a country. E.g. 'de'.
         :returns: a Country object
@@ -81,7 +81,7 @@ class RestCountryApi(object):
         return cls._get_country_list(resource, alpha)
 
     @classmethod
-    def get_country_by_country_codes(cls, codes):
+    def get_countries_by_country_codes(cls, codes):
         """Returns a list of countries.
 
         :param codes - List of strings which represent the codes of countries. E.g. ['us', 'uk']
@@ -89,11 +89,11 @@ class RestCountryApi(object):
         :returns: list of Country objects
         """
         resource = '/alpha?codes='
-        codes = ','.join(codes)
+        codes = cls.QUERY_SEPARATOR.join(codes)
         return cls._get_country_list(resource, codes)
 
     @classmethod
-    def get_countries_by_curreny(cls, currency):
+    def get_countries_by_currency(cls, currency):
         """Returns a list of countries.
 
         :param currency - Currency string of a country. E.g. 'EUR'.
@@ -133,6 +133,10 @@ class RestCountryApi(object):
         return cls._get_country_list(resource, capital)
 
 
+class RestCountryApiV2(RestCountryApi):
+    BASE_URI = 'https://restcountries.eu/rest/v2'
+    QUERY_SEPARATOR = ';'
+
 @python_2_unicode_compatible
 class Country(object):
 
@@ -140,23 +144,28 @@ class Country(object):
         return u'{}'.format(self.name)
 
     def __init__(self, country_data):
-        self.top_level_domain = country_data['topLevelDomain']
-        self.alpha2_code = country_data['alpha2Code']
-        self.alpha3_code = country_data['alpha3Code']
-        self.currencies = country_data['currencies']
-        self.capital = country_data['capital']
-        self.calling_codes = country_data['callingCodes']
-        self.alt_spellings = country_data['altSpellings']
-        self.relevance = country_data['relevance']
-        self.region = country_data['region']
-        self.subregion = country_data['subregion']
-        self.translation = country_data['translations']
-        self.population = country_data['population']
-        self.latlng = country_data['latlng']
-        self.demonym = country_data['demonym']
-        self.area = country_data['area']
-        self.gini = country_data['gini']
-        self.timezones = country_data['timezones']
-        self.borders = country_data['borders']
-        self.native_name = country_data['nativeName']
-        self.name = country_data['name']
+        self.top_level_domain = country_data.get('topLevelDomain', None)
+        self.alpha2_code = country_data.get('alpha2Code', None)
+        self.alpha3_code = country_data.get('alpha3Code', None)
+        self.currencies = country_data.get('currencies', None)
+        self.capital = country_data.get('capital', None)
+        self.calling_codes = country_data.get('callingCodes', None)
+        self.alt_spellings = country_data.get('altSpellings', None)
+        self.relevance = country_data.get('relevance', None)
+        self.region = country_data.get('region', None)
+        self.subregion = country_data.get('subregion', None)
+        self.translations = country_data.get('translations', None)
+        self.population = country_data.get('population', None)
+        self.latlng = country_data.get('latlng', None)
+        self.demonym = country_data.get('demonym', None)
+        self.area = country_data.get('area', None)
+        self.gini = country_data.get('gini', None)
+        self.timezones = country_data.get('timezones', None)
+        self.borders = country_data.get('borders', None)
+        self.native_name = country_data.get('nativeName', None)
+        self.name = country_data.get('name', None)
+        self.numeric_code = country_data.get('numericCode', None)
+        self.languages = country_data.get('languages', None)
+        self.flag = country_data.get('flag', None)
+        self.regional_blocs = country_data.get('regionalBlocs', None)
+        self.cioc = country_data.get('cioc', None)

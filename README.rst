@@ -16,7 +16,8 @@ Usage
 -----
 Just import the API Wrapper and start using it!::
 
-    from restcountries import RestCountryApi as rapi
+    # v1 from restcountries import RestCountryApi as rapi
+    from restcountries import RestCountryApiV2 as rapi
 
     def foo(name):
         country_list = rapi.get_countries_by_name('France')
@@ -41,7 +42,7 @@ access following attributes.::
 - relevance
 - region
 - subregion
-- translation
+- translations
 - population
 - latlng
 - demonym
@@ -51,3 +52,8 @@ access following attributes.::
 - borders
 - native_name
 - name
+- numeric_code
+- languages
+- flag
+- regional_blocs
+- cioc
