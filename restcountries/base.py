@@ -137,6 +137,7 @@ class RestCountryApiV2(RestCountryApi):
     BASE_URI = 'https://restcountries.eu/rest/v2'
     QUERY_SEPARATOR = ';'
 
+
 @python_2_unicode_compatible
 class Country(object):
 
