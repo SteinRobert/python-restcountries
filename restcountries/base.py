@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 import requests
 import json
-from future.utils import python_2_unicode_compatible
 
 
-class RestCountryApi(object):
+class RestCountryApi:
     BASE_URI = 'https://restcountries.eu/rest/v1'
     QUERY_SEPARATOR = ','
 
@@ -138,11 +136,10 @@ class RestCountryApiV2(RestCountryApi):
     QUERY_SEPARATOR = ';'
 
 
-@python_2_unicode_compatible
-class Country(object):
+class Country:
 
     def __str__(self):
-        return u'{}'.format(self.name)
+        return '{}'.format(self.name)
 
     def __init__(self, country_data):
         self.top_level_domain = country_data.get('topLevelDomain')
