@@ -14,7 +14,14 @@ class RestCountryApi:
         :param term - search term provided by the user of this package
         :returns - either a Country object or a list of Countries
         """
-        uri = '{}{}/{}'.format(cls.BASE_URI, resource, term)  # build URL
+        # build uri
+        if term and not resource.endswith("="):
+            # add the forward slash only when there is a term
+            # and it is not specifying the value part of a query string
+            term = "/{}".format(term)
+
+        uri = "{}{}{}".format(cls.BASE_URI, resource, term)
+
         response = requests.get(uri)
         if response.status_code == 200:
             result_list = []
@@ -167,3 +174,14 @@ class Country:
         self.flag = country_data.get('flag')
         self.regional_blocs = country_data.get('regionalBlocs')
         self.cioc = country_data.get('cioc')
+
+    def __eq__(self, other):
+        assert isinstance(other, Country)
+        return self.numeric_code == other.numeric_code
+
+    def __lt__(self, other):
+        assert isinstance(other, Country)
+        return self.numeric_code < other.numeric_code
+
+    def __hash__(self):
+        return int(self.numeric_code)
