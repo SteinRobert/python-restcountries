@@ -27,17 +27,16 @@ class RestCountryApi:
             term = "/{}".format(term)
 
         if filters and resource.endswith("="):
-            #checks whether the uri already has ?codes= so that it concatenates the parameters in the url using the & sign
+            # checks whether the uri already has ?codes= so that it concatenates the parameters in the url using the & sign
             uri = "{}{}{}&{}".format(
                 cls.BASE_URI, resource, term, filters_uri_string)
         elif filters and not resource.endswith("="):
-            #checks whether the uri does not contain any parameter then ads the field parameter that holds the filters
+            # checks whether the uri does not contain any parameter then ads the field parameter that holds the filters
             uri = "{}{}{}?{}".format(
                 cls.BASE_URI, resource, term, filters_uri_string)
         else:
             uri = "{}{}{}".format(cls.BASE_URI, resource, term)
 
-        print(uri)
         response = requests.get(uri)
         if response.status_code == 200:
             result_list = []
