@@ -38,31 +38,31 @@ filters list.
 
 Attributes That Can Be Passed In The Filters List.
 -------------------------------------------------
--topLevelDomain
--alpha2Code
--alpha3Code
--currencies
--capital
--callingCodes
--altSpellings
--relevance
--region
--subregion
--translations
--population
--latlng
--demonym
--area
--gini
--timezones
--borders
--nativeName
--name
--numericCode
--languages
--flag
--regionalBlocs
--cioc
+- topLevelDomain
+- alpha2Code
+- alpha3Code
+- currencies
+- capital
+- callingCodes
+- altSpellings
+- relevance
+- region
+- subregion
+- translations
+- population
+- latlng
+- demonym
+- area
+- gini
+- timezones
+- borders
+- nativeName
+- name
+- numericCode
+- languages
+- flag
+- regionalBlocs
+- cioc
 
 
 
