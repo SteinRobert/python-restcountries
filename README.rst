@@ -22,6 +22,9 @@ Just import the API Wrapper and start using it!::
     def foo(name):
         country_list = rapi.get_countries_by_name('France')
 
+
+
+
 Response Filtering Usage
 ------------------------
 Pass filters as a keyword argument to any of RestCountryApiV2 or RestCountryApi methods,
@@ -59,6 +62,10 @@ Attributes That Can Be Passed In The Filters List.
     -flag
     -regionalBlocs
     -cioc
+
+
+
+
 
 The Country object
 ------------------
