@@ -25,7 +25,7 @@ Just import the API Wrapper and start using it!::
 
 
 
-Response Filtering Usage
+Response filtering
 ------------------------
 Pass filters as a keyword argument to any of RestCountryApiV2 or RestCountryApi methods,
 this filters the response returned by the api. Thus the Country Object will only contain the attributes in the
@@ -36,7 +36,7 @@ filters list.
     def foo(name):
         country_list = rapi.get_countries_by_name('France',filters=["name","currencies","capital"])
 
-Attributes That Can Be Passed In The Filters List.
+Attributes that can be passed in the filters list.
 -------------------------------------------------
 - topLevelDomain
 - alpha2Code
