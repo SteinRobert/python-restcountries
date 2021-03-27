@@ -12,10 +12,11 @@ class RestCountryApi:
 
         :param resource - resource to create the URL
         :param term - search term provided by the user of this package
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns - either a Country object or a list of Countries
         """
         # create the filter string
+        filters_uri_string = ''
         if filters:
             filter_string = cls.QUERY_SEPARATOR.join(filters)
             filters_uri_string = "fields={}".format(filter_string)
@@ -26,16 +27,12 @@ class RestCountryApi:
             # and it is not specifying the value part of a query string
             term = "/{}".format(term)
 
-        if filters and resource.endswith("="):
-            # checks whether the uri already has ?codes= so that it concatenates the parameters in the url using the & sign
-            uri = "{}{}{}&{}".format(
-                cls.BASE_URI, resource, term, filters_uri_string)
-        elif filters and not resource.endswith("="):
-            # checks whether the uri does not contain any parameter then ads the field parameter that holds the filters
-            uri = "{}{}{}?{}".format(
-                cls.BASE_URI, resource, term, filters_uri_string)
-        else:
-            uri = "{}{}{}".format(cls.BASE_URI, resource, term)
+        uri = "{}{}{}".format(cls.BASE_URI, resource, term)
+        if filters:
+            prefix = "?"
+            if "?" in uri:
+                prefix = "&"
+            uri += "{}{}".format(prefix, filters_uri_string)
 
         response = requests.get(uri)
         if response.status_code == 200:
@@ -57,7 +54,7 @@ class RestCountryApi:
     def get_all(cls, filters=None):
         """Returns all countries provided by  restcountries.eu.
 
-            :param filters - alist of fields to filter the output of the request to include only the specified fields.
+            :param filters - a list of fields to filter the output of the request to include only the specified fields.
         """
         resource = '/all'
         return cls._get_country_list(resource, filters=filters)
@@ -67,7 +64,7 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param name - Name string of a country. E.g. 'France'.
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/name'
@@ -78,18 +75,18 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param language - Language string of a country. E.g. 'en'.
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/lang'
         return cls._get_country_list(resource, language, filters=filters)
 
     @classmethod
-    def get_countries_by_calling_code(cls, calling_code):
+    def get_countries_by_calling_code(cls, calling_code, filters=None):
         """Returns a list of countries.
 
         :param calling_code - Calling code string of a country. E.g. '1'.
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/callingcode'
@@ -100,7 +97,7 @@ class RestCountryApi:
         """Returns a `Country` object by alpha code.
 
         :param alpha - Alpha code string of a country. E.g. 'de'.
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: a Country object
         You can look those up at wikipedia: https://en.wikipedia.org/wiki/ISO_3166-1
         """
@@ -112,7 +109,7 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param codes - List of strings which represent the codes of countries. E.g. ['us', 'ke']
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         You can look those up at wikipedia: https://en.wikipedia.org/wiki/ISO_3166-1
         :returns: list of Country objects
         """
@@ -125,7 +122,7 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param currency - Currency string of a country. E.g. 'EUR'.
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/currency'
@@ -136,7 +133,7 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param region - Region string of a country. E.g. 'Europe'.
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/region'
@@ -147,7 +144,7 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param subregion - Subregion string of a country. E.g. 'Western Europe'
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/subregion'
@@ -158,7 +155,7 @@ class RestCountryApi:
         """Returns a list of countries.
 
         :param capital - Capital string of a country. E.g. 'London'
-        :param filters - alist of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
         resource = '/capital'
@@ -218,3 +215,8 @@ class Country:
 
     def __repr__(self):
         return "<{} | {}>".format(self.name, self.alpha3_code)
+
+
+# s = RestCountryApiV2()
+
+# s.get_countries_by_country_codes(["ke", "ug"],filters=["name","capital","currencies"])
