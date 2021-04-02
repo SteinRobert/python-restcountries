@@ -3,7 +3,7 @@ python-restcountries
 ------
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Coverage Status](https://coveralls.io/repos/github/SteinRobert/python-restcountries/badge.svg?branch=master)](https://coveralls.io/github/SteinRobert/python-restcountries?branch=master)
-
+[![PyPI version](https://badge.fury.io/py/python-restcountries.svg)](https://badge.fury.io/py/python-restcountries)
 
 This is a simple python wrapper for the API of [http://restcountries.eu](http://restcountries.eu).
 If there are any issues, please use this repository to contact me about it.
