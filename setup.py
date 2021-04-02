@@ -18,5 +18,6 @@ setup(
     keywords=["api", "wrapper", "country", "countries"],
     install_requires=["requests"],
     long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
     classifiers=["Programming Language :: Python :: 3 :: Only"],
 )
