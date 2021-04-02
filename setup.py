@@ -19,6 +19,6 @@ setup(
     license="Unlicense",
     keywords=["api", "wrapper", "country", "countries"],
     install_requires=["requests"],
-    long_description=open("README.rst").read(),
+    long_description=open("README.md").read(),
     classifiers=["Programming Language :: Python :: 3 :: Only"],
 )
