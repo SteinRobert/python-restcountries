@@ -3,11 +3,11 @@ import json
 
 
 class RestCountryApi:
-    BASE_URI = 'https://restcountries.eu/rest/v1'
-    QUERY_SEPARATOR = ','
+    BASE_URI = "https://restcountries.eu/rest/v1"
+    QUERY_SEPARATOR = ","
 
     @classmethod
-    def _get_country_list(cls, resource, term='', filters=None):
+    def _get_country_list(cls, resource, term="", filters=None):
         """Takes a resource and a search term and return a list of countries or a country.
 
         :param resource - resource to create the URL
@@ -16,7 +16,7 @@ class RestCountryApi:
         :returns - either a Country object or a list of Countries
         """
         # create the filter string
-        filters_uri_string = ''
+        filters_uri_string = ""
         if filters:
             filter_string = cls.QUERY_SEPARATOR.join(filters)
             filters_uri_string = "fields={}".format(filter_string)
@@ -39,7 +39,11 @@ class RestCountryApi:
             result_list = []
             data = json.loads(response.text)  # parse json to dict
             if type(data) == list:
-                for country_data in data:  # in case it is a list create python list with country instances
+                for (
+                    country_data
+                ) in (
+                    data
+                ):  # in case it is a list create python list with country instances
                     country = Country(country_data)
                     result_list.append(country)
             else:
@@ -56,7 +60,7 @@ class RestCountryApi:
 
             :param filters - a list of fields to filter the output of the request to include only the specified fields.
         """
-        resource = '/all'
+        resource = "/all"
         return cls._get_country_list(resource, filters=filters)
 
     @classmethod
@@ -67,7 +71,7 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/name'
+        resource = "/name"
         return cls._get_country_list(resource, name, filters=filters)
 
     @classmethod
@@ -78,7 +82,7 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/lang'
+        resource = "/lang"
         return cls._get_country_list(resource, language, filters=filters)
 
     @classmethod
@@ -89,7 +93,7 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/callingcode'
+        resource = "/callingcode"
         return cls._get_country_list(resource, calling_code, filters=filters)
 
     @classmethod
@@ -101,7 +105,7 @@ class RestCountryApi:
         :returns: a Country object
         You can look those up at wikipedia: https://en.wikipedia.org/wiki/ISO_3166-1
         """
-        resource = '/alpha'
+        resource = "/alpha"
         return cls._get_country_list(resource, alpha, filters=filters)
 
     @classmethod
@@ -113,7 +117,7 @@ class RestCountryApi:
         You can look those up at wikipedia: https://en.wikipedia.org/wiki/ISO_3166-1
         :returns: list of Country objects
         """
-        resource = '/alpha?codes='
+        resource = "/alpha?codes="
         codes = cls.QUERY_SEPARATOR.join(codes)
         return cls._get_country_list(resource, codes, filters=filters)
 
@@ -125,7 +129,7 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/currency'
+        resource = "/currency"
         return cls._get_country_list(resource, currency, filters=filters)
 
     @classmethod
@@ -136,7 +140,7 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/region'
+        resource = "/region"
         return cls._get_country_list(resource, region, filters=filters)
 
     @classmethod
@@ -147,7 +151,7 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/subregion'
+        resource = "/subregion"
         return cls._get_country_list(resource, subregion, filters=filters)
 
     @classmethod
@@ -158,46 +162,45 @@ class RestCountryApi:
         :param filters - a list of fields to filter the output of the request to include only the specified fields.
         :returns: list of Country objects
         """
-        resource = '/capital'
+        resource = "/capital"
         return cls._get_country_list(resource, capital, filters=filters)
 
 
 class RestCountryApiV2(RestCountryApi):
-    BASE_URI = 'https://restcountries.eu/rest/v2'
-    QUERY_SEPARATOR = ';'
+    BASE_URI = "https://restcountries.eu/rest/v2"
+    QUERY_SEPARATOR = ";"
 
 
 class Country:
-
     def __str__(self):
-        return '{}'.format(self.name)
+        return "{}".format(self.name)
 
     def __init__(self, country_data):
-        self.top_level_domain = country_data.get('topLevelDomain')
-        self.alpha2_code = country_data.get('alpha2Code')
-        self.alpha3_code = country_data.get('alpha3Code')
-        self.currencies = country_data.get('currencies')
-        self.capital = country_data.get('capital')
-        self.calling_codes = country_data.get('callingCodes')
-        self.alt_spellings = country_data.get('altSpellings')
-        self.relevance = country_data.get('relevance')
-        self.region = country_data.get('region')
-        self.subregion = country_data.get('subregion')
-        self.translations = country_data.get('translations')
-        self.population = country_data.get('population')
-        self.latlng = country_data.get('latlng')
-        self.demonym = country_data.get('demonym')
-        self.area = country_data.get('area')
-        self.gini = country_data.get('gini')
-        self.timezones = country_data.get('timezones')
-        self.borders = country_data.get('borders')
-        self.native_name = country_data.get('nativeName')
-        self.name = country_data.get('name')
-        self.numeric_code = country_data.get('numericCode')
-        self.languages = country_data.get('languages')
-        self.flag = country_data.get('flag')
-        self.regional_blocs = country_data.get('regionalBlocs')
-        self.cioc = country_data.get('cioc')
+        self.top_level_domain = country_data.get("topLevelDomain")
+        self.alpha2_code = country_data.get("alpha2Code")
+        self.alpha3_code = country_data.get("alpha3Code")
+        self.currencies = country_data.get("currencies")
+        self.capital = country_data.get("capital")
+        self.calling_codes = country_data.get("callingCodes")
+        self.alt_spellings = country_data.get("altSpellings")
+        self.relevance = country_data.get("relevance")
+        self.region = country_data.get("region")
+        self.subregion = country_data.get("subregion")
+        self.translations = country_data.get("translations")
+        self.population = country_data.get("population")
+        self.latlng = country_data.get("latlng")
+        self.demonym = country_data.get("demonym")
+        self.area = country_data.get("area")
+        self.gini = country_data.get("gini")
+        self.timezones = country_data.get("timezones")
+        self.borders = country_data.get("borders")
+        self.native_name = country_data.get("nativeName")
+        self.name = country_data.get("name")
+        self.numeric_code = country_data.get("numericCode")
+        self.languages = country_data.get("languages")
+        self.flag = country_data.get("flag")
+        self.regional_blocs = country_data.get("regionalBlocs")
+        self.cioc = country_data.get("cioc")
 
     def __eq__(self, other):
         assert isinstance(other, Country)

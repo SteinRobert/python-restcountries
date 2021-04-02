@@ -40,7 +40,8 @@ def test_get_countries_by_name_with_filter(countries_map, country_name):
     """
     sanitized_country_name = country_name.replace("_", " ")
     countries = rapi.get_countries_by_name(
-        sanitized_country_name, filters=["name", "currencies"])
+        sanitized_country_name, filters=["name", "currencies"]
+    )
     assert countries == [countries_map[country_name]]
 
 
@@ -72,12 +73,15 @@ def test_get_country_by_country_code(countries_map, country_code, country_name):
         ("ngr", "nigeria"),
     ],
 )
-def test_get_country_by_country_code_with_filter(countries_map, country_code, country_name):
+def test_get_country_by_country_code_with_filter(
+    countries_map, country_code, country_name
+):
     """
     Test that a single country can be retrieved by its country code and the response is filtered.
     """
     country = rapi.get_country_by_country_code(
-        country_code, filters=["name", "capital"])
+        country_code, filters=["name", "capital"]
+    )
     assert country == countries_map[country_name]
 
 
@@ -96,15 +100,15 @@ def test_get_countries_by_country_codes_with_filter(nigeria, egypt, kenya):
     Test that multiple countries can be retrieved by multiple country codes and response filtered.
     """
     countries = rapi.get_countries_by_country_codes(
-        ["ng", "eg", "ken"], filters=["name", "currencies"])
+        ["ng", "eg", "ken"], filters=["name", "currencies"]
+    )
     assert sorted(countries) == sorted([nigeria, egypt, kenya])
 
 
 @pytest.mark.usefixtures("mock_get_countries_by_currency")
 @pytest.mark.parametrize(
     "currency, country_name",
-    [("ZAR", "south_africa"), ("NGN", "nigeria"),
-     ("EGP", "egypt"), ("KES", "kenya")],
+    [("ZAR", "south_africa"), ("NGN", "nigeria"), ("EGP", "egypt"), ("KES", "kenya")],
 )
 def test_get_countries_by_currency(countries_map, currency, country_name):
     """
@@ -117,8 +121,7 @@ def test_get_countries_by_currency(countries_map, currency, country_name):
 @pytest.mark.usefixtures("mock_get_countries_by_currency_with_filter")
 @pytest.mark.parametrize(
     "currency, country_name",
-    [("ZAR", "south_africa"), ("NGN", "nigeria"),
-     ("EGP", "egypt"), ("KES", "kenya")],
+    [("ZAR", "south_africa"), ("NGN", "nigeria"), ("EGP", "egypt"), ("KES", "kenya")],
 )
 def test_get_countries_by_currency_with_filter(countries_map, currency, country_name):
     """
@@ -136,13 +139,15 @@ def test_get_countries_by_language(south_africa, nigeria, kenya):
     countries = rapi.get_countries_by_language("en")
     assert countries == [south_africa, nigeria, kenya]
 
+
 @pytest.mark.usefixtures("mock_get_countries_by_language_with_filter")
 def test_get_countries_by_language_with_filter(south_africa, nigeria, kenya):
     """
     Test that countries can be retrieved by language and the response is filtered.
     """
-    countries = rapi.get_countries_by_language("en",filters=["name","flag"])
+    countries = rapi.get_countries_by_language("en", filters=["name", "flag"])
     assert countries == [south_africa, nigeria, kenya]
+
 
 @pytest.mark.usefixtures("mock_get_countries_by_capital")
 @pytest.mark.parametrize(
@@ -176,14 +181,14 @@ def test_get_countries_by_capital_with_filter(countries_map, capital, country_na
     """
     Test that countries can be retrieved by capital city and the response is filtered.
     """
-    countries = rapi.get_countries_by_capital(capital,filters=["name","demonym"])
+    countries = rapi.get_countries_by_capital(capital, filters=["name", "demonym"])
     assert countries == [countries_map[country_name]]
+
 
 @pytest.mark.usefixtures("mock_get_countries_by_calling_code")
 @pytest.mark.parametrize(
     "calling_code, country_name",
-    [("27", "south_africa"), ("234", "nigeria"),
-     ("20", "egypt"), ("254", "kenya")],
+    [("27", "south_africa"), ("234", "nigeria"), ("20", "egypt"), ("254", "kenya")],
 )
 def test_get_countries_by_calling_code(countries_map, calling_code, country_name):
     """
@@ -192,18 +197,21 @@ def test_get_countries_by_calling_code(countries_map, calling_code, country_name
     countries = rapi.get_countries_by_calling_code(calling_code)
     assert countries == [countries_map[country_name]]
 
+
 @pytest.mark.usefixtures("mock_get_countries_by_calling_code_with_filter")
 @pytest.mark.parametrize(
     "calling_code, country_name",
-    [("27", "south_africa"), ("234", "nigeria"),
-     ("20", "egypt"), ("254", "kenya")],
+    [("27", "south_africa"), ("234", "nigeria"), ("20", "egypt"), ("254", "kenya")],
 )
-def test_get_countries_by_calling_code_with_filter(countries_map, calling_code, country_name):
+def test_get_countries_by_calling_code_with_filter(
+    countries_map, calling_code, country_name
+):
     """
     Test that countries can be retrieved by calling code and the response is filtered.
     """
-    countries = rapi.get_countries_by_calling_code(calling_code,filters=["name"])
+    countries = rapi.get_countries_by_calling_code(calling_code, filters=["name"])
     assert countries == [countries_map[country_name]]
+
 
 @pytest.mark.usefixtures("mock_get_countries_by_region")
 def test_get_countries_by_region(countries_map):
@@ -216,16 +224,18 @@ def test_get_countries_by_region(countries_map):
     countries = rapi.get_countries_by_region("europe")
     assert countries == []
 
+
 @pytest.mark.usefixtures("mock_get_countries_by_region_with_filter")
 def test_get_countries_by_region_with_filter(countries_map):
     """
     Test that countries can be retrieved by region and the response is filtered.
     """
-    countries = rapi.get_countries_by_region("africa",filters=["name"])
+    countries = rapi.get_countries_by_region("africa", filters=["name"])
     assert sorted(countries) == sorted(countries_map.values())
 
-    countries = rapi.get_countries_by_region("europe",filters=["name"])
+    countries = rapi.get_countries_by_region("europe", filters=["name"])
     assert countries == []
+
 
 @pytest.mark.usefixtures("mock_get_countries_by_subregion")
 @pytest.mark.parametrize(
@@ -244,6 +254,7 @@ def test_get_countries_by_subregion(countries_map, subregion, country_name):
     countries = rapi.get_countries_by_subregion(subregion)
     assert countries == [countries_map[country_name]]
 
+
 @pytest.mark.usefixtures("mock_get_countries_by_subregion_with_filter")
 @pytest.mark.parametrize(
     "subregion, country_name",
@@ -258,5 +269,5 @@ def test_get_countries_by_subregion_with_filter(countries_map, subregion, countr
     """
     Test that countries can be retrieved by subregion and the response is filtered.
     """
-    countries = rapi.get_countries_by_subregion(subregion,filters=["name"])
+    countries = rapi.get_countries_by_subregion(subregion, filters=["name"])
     assert countries == [countries_map[country_name]]

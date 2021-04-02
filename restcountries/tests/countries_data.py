@@ -17,62 +17,59 @@ RSA = {
     "borders": ["BWA", "LSO", "MOZ", "NAM", "SWZ", "ZWE"],
     "nativeName": "South Africa",
     "numericCode": "710",
-    "currencies": [{
-        "code": "ZAR",
-        "name": "South African rand",
-        "symbol": "R"
-    }],
-    "languages": [{
-        "iso639_1": "af",
-        "iso639_2": "afr",
-        "name": "Afrikaans",
-        "nativeName": "Afrikaans"
-    }, {
-        "iso639_1": "en",
-        "iso639_2": "eng",
-        "name": "English",
-        "nativeName": "English"
-    }, {
-        "iso639_1": "nr",
-        "iso639_2": "nbl",
-        "name": "Southern Ndebele",
-        "nativeName": "isiNdebele"
-    }, {
-        "iso639_1": "st",
-        "iso639_2": "sot",
-        "name": "Southern Sotho",
-        "nativeName": "Sesotho"
-    }, {
-        "iso639_1": "ss",
-        "iso639_2": "ssw",
-        "name": "Swati",
-        "nativeName": "SiSwati"
-    }, {
-        "iso639_1": "tn",
-        "iso639_2": "tsn",
-        "name": "Tswana",
-        "nativeName": "Setswana"
-    }, {
-        "iso639_1": "ts",
-        "iso639_2": "tso",
-        "name": "Tsonga",
-        "nativeName": "Xitsonga"
-    }, {
-        "iso639_1": "ve",
-        "iso639_2": "ven",
-        "name": "Venda",
-        "nativeName": "Tshivenḓa"
-    }, {
-        "iso639_1": "xh",
-        "iso639_2": "xho",
-        "name": "Xhosa",
-        "nativeName": "isiXhosa"
-    }, {
-        "iso639_1": "zu",
-        "iso639_2": "zul",
-        "name": "Zulu",
-        "nativeName": "isiZulu"
-    }],
+    "currencies": [{"code": "ZAR", "name": "South African rand", "symbol": "R"}],
+    "languages": [
+        {
+            "iso639_1": "af",
+            "iso639_2": "afr",
+            "name": "Afrikaans",
+            "nativeName": "Afrikaans",
+        },
+        {
+            "iso639_1": "en",
+            "iso639_2": "eng",
+            "name": "English",
+            "nativeName": "English",
+        },
+        {
+            "iso639_1": "nr",
+            "iso639_2": "nbl",
+            "name": "Southern Ndebele",
+            "nativeName": "isiNdebele",
+        },
+        {
+            "iso639_1": "st",
+            "iso639_2": "sot",
+            "name": "Southern Sotho",
+            "nativeName": "Sesotho",
+        },
+        {"iso639_1": "ss", "iso639_2": "ssw", "name": "Swati", "nativeName": "SiSwati"},
+        {
+            "iso639_1": "tn",
+            "iso639_2": "tsn",
+            "name": "Tswana",
+            "nativeName": "Setswana",
+        },
+        {
+            "iso639_1": "ts",
+            "iso639_2": "tso",
+            "name": "Tsonga",
+            "nativeName": "Xitsonga",
+        },
+        {
+            "iso639_1": "ve",
+            "iso639_2": "ven",
+            "name": "Venda",
+            "nativeName": "Tshivenḓa",
+        },
+        {
+            "iso639_1": "xh",
+            "iso639_2": "xho",
+            "name": "Xhosa",
+            "nativeName": "isiXhosa",
+        },
+        {"iso639_1": "zu", "iso639_2": "zul", "name": "Zulu", "nativeName": "isiZulu"},
+    ],
     "translations": {
         "de": "Republik Südafrika",
         "es": "República de Sudáfrica",
@@ -83,16 +80,24 @@ RSA = {
         "pt": "República Sul-Africana",
         "nl": "Zuid-Afrika",
         "hr": "Južnoafrička Republika",
-        "fa": "آفریقای جنوبی"
+        "fa": "آفریقای جنوبی",
     },
     "flag": "https://restcountries.eu/data/zaf.svg",
-    "regionalBlocs": [{
-        "acronym": "AU",
-        "name": "African Union",
-        "otherAcronyms": [],
-        "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"]
-    }],
-    "cioc": "RSA"
+    "regionalBlocs": [
+        {
+            "acronym": "AU",
+            "name": "African Union",
+            "otherAcronyms": [],
+            "otherNames": [
+                "الاتحاد الأفريقي",
+                "Union africaine",
+                "União Africana",
+                "Unión Africana",
+                "Umoja wa Afrika",
+            ],
+        }
+    ],
+    "cioc": "RSA",
 }
 
 NGR = {
@@ -114,17 +119,15 @@ NGR = {
     "borders": ["BEN", "CMR", "TCD", "NER"],
     "nativeName": "Nigeria",
     "numericCode": "566",
-    "currencies": [{
-        "code": "NGN",
-        "name": "Nigerian naira",
-        "symbol": "₦"
-    }],
-    "languages": [{
-        "iso639_1": "en",
-        "iso639_2": "eng",
-        "name": "English",
-        "nativeName": "English"
-    }],
+    "currencies": [{"code": "NGN", "name": "Nigerian naira", "symbol": "₦"}],
+    "languages": [
+        {
+            "iso639_1": "en",
+            "iso639_2": "eng",
+            "name": "English",
+            "nativeName": "English",
+        }
+    ],
     "translations": {
         "de": "Nigeria",
         "es": "Nigeria",
@@ -135,16 +138,24 @@ NGR = {
         "pt": "Nigéria",
         "nl": "Nigeria",
         "hr": "Nigerija",
-        "fa": "نیجریه"
+        "fa": "نیجریه",
     },
     "flag": "https://restcountries.eu/data/nga.svg",
-    "regionalBlocs": [{
-        "acronym": "AU",
-        "name": "African Union",
-        "otherAcronyms": [],
-        "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"]
-    }],
-    "cioc": "NGR"
+    "regionalBlocs": [
+        {
+            "acronym": "AU",
+            "name": "African Union",
+            "otherAcronyms": [],
+            "otherNames": [
+                "الاتحاد الأفريقي",
+                "Union africaine",
+                "União Africana",
+                "Unión Africana",
+                "Umoja wa Afrika",
+            ],
+        }
+    ],
+    "cioc": "NGR",
 }
 
 EGY = {
@@ -166,17 +177,10 @@ EGY = {
     "borders": ["ISR", "LBY", "SDN"],
     "nativeName": "مصر‎",
     "numericCode": "818",
-    "currencies": [{
-        "code": "EGP",
-        "name": "Egyptian pound",
-        "symbol": "£"
-    }],
-    "languages": [{
-        "iso639_1": "ar",
-        "iso639_2": "ara",
-        "name": "Arabic",
-        "nativeName": "العربية"
-    }],
+    "currencies": [{"code": "EGP", "name": "Egyptian pound", "symbol": "£"}],
+    "languages": [
+        {"iso639_1": "ar", "iso639_2": "ara", "name": "Arabic", "nativeName": "العربية"}
+    ],
     "translations": {
         "de": "Ägypten",
         "es": "Egipto",
@@ -187,21 +191,34 @@ EGY = {
         "pt": "Egipto",
         "nl": "Egypte",
         "hr": "Egipat",
-        "fa": "مصر"
+        "fa": "مصر",
     },
     "flag": "https://restcountries.eu/data/egy.svg",
-    "regionalBlocs": [{
-        "acronym": "AU",
-        "name": "African Union",
-        "otherAcronyms": [],
-        "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"]
-    }, {
-        "acronym": "AL",
-        "name": "Arab League",
-        "otherAcronyms": [],
-        "otherNames": ["جامعة الدول العربية", "Jāmiʻat ad-Duwal al-ʻArabīyah", "League of Arab States"]
-    }],
-    "cioc": "EGY"
+    "regionalBlocs": [
+        {
+            "acronym": "AU",
+            "name": "African Union",
+            "otherAcronyms": [],
+            "otherNames": [
+                "الاتحاد الأفريقي",
+                "Union africaine",
+                "União Africana",
+                "Unión Africana",
+                "Umoja wa Afrika",
+            ],
+        },
+        {
+            "acronym": "AL",
+            "name": "Arab League",
+            "otherAcronyms": [],
+            "otherNames": [
+                "جامعة الدول العربية",
+                "Jāmiʻat ad-Duwal al-ʻArabīyah",
+                "League of Arab States",
+            ],
+        },
+    ],
+    "cioc": "EGY",
 }
 
 KEN = {
@@ -223,22 +240,21 @@ KEN = {
     "borders": ["ETH", "SOM", "SSD", "TZA", "UGA"],
     "nativeName": "Kenya",
     "numericCode": "404",
-    "currencies": [{
-        "code": "KES",
-        "name": "Kenyan shilling",
-        "symbol": "Sh"
-    }],
-    "languages": [{
-        "iso639_1": "en",
-        "iso639_2": "eng",
-        "name": "English",
-        "nativeName": "English"
-    }, {
-        "iso639_1": "sw",
-        "iso639_2": "swa",
-        "name": "Swahili",
-        "nativeName": "Kiswahili"
-    }],
+    "currencies": [{"code": "KES", "name": "Kenyan shilling", "symbol": "Sh"}],
+    "languages": [
+        {
+            "iso639_1": "en",
+            "iso639_2": "eng",
+            "name": "English",
+            "nativeName": "English",
+        },
+        {
+            "iso639_1": "sw",
+            "iso639_2": "swa",
+            "name": "Swahili",
+            "nativeName": "Kiswahili",
+        },
+    ],
     "translations": {
         "de": "Kenia",
         "es": "Kenia",
@@ -249,14 +265,22 @@ KEN = {
         "pt": "Quénia",
         "nl": "Kenia",
         "hr": "Kenija",
-        "fa": "کنیا"
+        "fa": "کنیا",
     },
     "flag": "https://restcountries.eu/data/ken.svg",
-    "regionalBlocs": [{
-        "acronym": "AU",
-        "name": "African Union",
-        "otherAcronyms": [],
-        "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"]
-    }],
-    "cioc": "KEN"
-} 
+    "regionalBlocs": [
+        {
+            "acronym": "AU",
+            "name": "African Union",
+            "otherAcronyms": [],
+            "otherNames": [
+                "الاتحاد الأفريقي",
+                "Union africaine",
+                "União Africana",
+                "Unión Africana",
+                "Umoja wa Afrika",
+            ],
+        }
+    ],
+    "cioc": "KEN",
+}

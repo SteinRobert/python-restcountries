@@ -2,4 +2,4 @@
 from restcountries.base import RestCountryApi
 from restcountries.base import RestCountryApiV2
 
-__version__ = '0.3'
+__version__ = "0.3"
