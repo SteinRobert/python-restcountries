@@ -5,6 +5,10 @@ python-restcountries
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/SteinRobert/python-restcountries
 
+.. image:: https://coveralls.io/repos/github/SteinRobert/python-restcountries/badge.svg?branch=master
+:target: https://coveralls.io/github/SteinRobert/python-restcountries?branch=master
+
+
 This is a simple python wrapper for the API of `http://restcountries.eu <http://restcountries.eu>`.
 If there are any issues, please use this repository to contact me about it.
 
