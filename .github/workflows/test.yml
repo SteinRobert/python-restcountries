@@ -36,7 +36,7 @@ jobs:
   coveralls:
     name: Indicate completion to coveralls.io
     # need secrets.GITHUB_TOKEN
-    needs: lint
+    needs: Lint
     runs-on: ubuntu-latest
     container: python:3-slim
     steps:
