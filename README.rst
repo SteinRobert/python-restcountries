@@ -6,7 +6,7 @@ python-restcountries
     :target: https://github.com/SteinRobert/python-restcountries
 
 .. image:: https://coveralls.io/repos/github/SteinRobert/python-restcountries/badge.svg?branch=master
-:target: https://coveralls.io/github/SteinRobert/python-restcountries?branch=master
+    :target: https://coveralls.io/github/SteinRobert/python-restcountries?branch=master
 
 
 This is a simple python wrapper for the API of `http://restcountries.eu <http://restcountries.eu>`.
