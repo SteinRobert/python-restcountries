@@ -5,7 +5,7 @@ python-restcountries
 [![Coverage Status](https://coveralls.io/repos/github/SteinRobert/python-restcountries/badge.svg?branch=master)](https://coveralls.io/github/SteinRobert/python-restcountries?branch=master)
 [![PyPI version](https://badge.fury.io/py/python-restcountries.svg)](https://badge.fury.io/py/python-restcountries)
 
-This is a simple python wrapper for the API of [http://restcountries.eu](http://restcountries.eu).
+This is a simple python wrapper for the API of [http://restcountries.com](http://restcountries.com).
 If there are any issues, please use this repository to contact me about it.
 
 Installation

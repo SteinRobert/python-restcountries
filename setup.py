@@ -13,7 +13,7 @@ setup(
     ),
     packages=find_packages(),
     dependencies=["future", "requests"],
-    description="Python API Wrapper for restcountries.eu",
+    description="Python API Wrapper for restcountries.com",
     license="Unlicense",
     keywords=["api", "wrapper", "country", "countries"],
     install_requires=["requests"],
