@@ -108,13 +108,13 @@ def fixture_mock_get_country_by_country_code_with_filter(requests_mock):
     Mock requests for getting a country by its country code and filters the response.
     """
     za_url = BASE_URI + "/alpha/za?fields=name;capital"
-    requests_mock.get(za_url, json=[RSA])
+    requests_mock.get(za_url, json=RSA)
     zaf_url = BASE_URI + "/alpha/zaf?fields=name;capital"
-    requests_mock.get(zaf_url, json=[RSA])
+    requests_mock.get(zaf_url, json=RSA)
     ng_url = BASE_URI + "/alpha/ng?fields=name;capital"
-    requests_mock.get(ng_url, json=[NGR])
+    requests_mock.get(ng_url, json=NGR)
     ngr_url = BASE_URI + "/alpha/ngr?fields=name;capital"
-    requests_mock.get(ngr_url, json=[NGR])
+    requests_mock.get(ngr_url, json=NGR)
 
 
 @pytest.fixture(name="mock_get_countries_by_country_codes")

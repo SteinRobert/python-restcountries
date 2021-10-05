@@ -82,7 +82,7 @@ def test_get_country_by_country_code_with_filter(
     country = rapi.get_country_by_country_code(
         country_code, filters=["name", "capital"]
     )
-    assert country[0] == countries_map[country_name]
+    assert country == countries_map[country_name]
 
 
 @pytest.mark.usefixtures("mock_get_countries_by_country_codes")
@@ -108,8 +108,7 @@ def test_get_countries_by_country_codes_with_filter(nigeria, egypt, kenya):
 @pytest.mark.usefixtures("mock_get_countries_by_currency")
 @pytest.mark.parametrize(
     "currency, country_name",
-    [("ZAR", "south_africa"), ("NGN", "nigeria"),
-     ("EGP", "egypt"), ("KES", "kenya")],
+    [("ZAR", "south_africa"), ("NGN", "nigeria"), ("EGP", "egypt"), ("KES", "kenya")],
 )
 def test_get_countries_by_currency(countries_map, currency, country_name):
     """
@@ -122,8 +121,7 @@ def test_get_countries_by_currency(countries_map, currency, country_name):
 @pytest.mark.usefixtures("mock_get_countries_by_currency_with_filter")
 @pytest.mark.parametrize(
     "currency, country_name",
-    [("ZAR", "south_africa"), ("NGN", "nigeria"),
-     ("EGP", "egypt"), ("KES", "kenya")],
+    [("ZAR", "south_africa"), ("NGN", "nigeria"), ("EGP", "egypt"), ("KES", "kenya")],
 )
 def test_get_countries_by_currency_with_filter(countries_map, currency, country_name):
     """
@@ -183,16 +181,14 @@ def test_get_countries_by_capital_with_filter(countries_map, capital, country_na
     """
     Test that countries can be retrieved by capital city and the response is filtered.
     """
-    countries = rapi.get_countries_by_capital(
-        capital, filters=["name", "demonym"])
+    countries = rapi.get_countries_by_capital(capital, filters=["name", "demonym"])
     assert countries == [countries_map[country_name]]
 
 
 @pytest.mark.usefixtures("mock_get_countries_by_calling_code")
 @pytest.mark.parametrize(
     "calling_code, country_name",
-    [("27", "south_africa"), ("234", "nigeria"),
-     ("20", "egypt"), ("254", "kenya")],
+    [("27", "south_africa"), ("234", "nigeria"), ("20", "egypt"), ("254", "kenya")],
 )
 def test_get_countries_by_calling_code(countries_map, calling_code, country_name):
     """
@@ -205,8 +201,7 @@ def test_get_countries_by_calling_code(countries_map, calling_code, country_name
 @pytest.mark.usefixtures("mock_get_countries_by_calling_code_with_filter")
 @pytest.mark.parametrize(
     "calling_code, country_name",
-    [("27", "south_africa"), ("234", "nigeria"),
-     ("20", "egypt"), ("254", "kenya")],
+    [("27", "south_africa"), ("234", "nigeria"), ("20", "egypt"), ("254", "kenya")],
 )
 def test_get_countries_by_calling_code_with_filter(
     countries_map, calling_code, country_name
@@ -214,8 +209,7 @@ def test_get_countries_by_calling_code_with_filter(
     """
     Test that countries can be retrieved by calling code and the response is filtered.
     """
-    countries = rapi.get_countries_by_calling_code(
-        calling_code, filters=["name"])
+    countries = rapi.get_countries_by_calling_code(calling_code, filters=["name"])
     assert countries == [countries_map[country_name]]
 
 
