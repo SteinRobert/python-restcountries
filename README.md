@@ -19,7 +19,6 @@ Usage
 -----
 Just import the API Wrapper and start using it!::
 ```python
-# v1 from restcountries import RestCountryApi as rapi
 from restcountries import RestCountryApiV2 as rapi
 
 def foo(name):
@@ -34,7 +33,6 @@ Pass filters as a keyword argument to any of RestCountryApiV2 or RestCountryApi 
 this filters the response returned by the api. Thus the Country Object will only contain the attributes in the
 filters list.
 ```python
-# v1 from restcountries import RestCountryApi as rapi
 from restcountries import RestCountryApiV2 as rapi
 
 def foo(name):
