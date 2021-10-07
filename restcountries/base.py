@@ -3,7 +3,7 @@ import json
 
 
 class RestCountryApi:
-    BASE_URI = "https://restcountries.eu/rest/v1"
+    BASE_URI = "https://restcountries.com/v1"
     QUERY_SEPARATOR = ","
 
     @classmethod
@@ -167,7 +167,7 @@ class RestCountryApi:
 
 
 class RestCountryApiV2(RestCountryApi):
-    BASE_URI = "https://restcountries.eu/rest/v2"
+    BASE_URI = "https://restcountries.com/v2"
     QUERY_SEPARATOR = ";"
 
 
@@ -218,8 +218,3 @@ class Country:
 
     def __repr__(self):
         return "<{} | {}>".format(self.name, self.alpha3_code)
-
-
-# s = RestCountryApiV2()
-
-# s.get_countries_by_country_codes(["ke", "ug"],filters=["name","capital","currencies"])
