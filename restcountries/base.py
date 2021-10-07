@@ -2,9 +2,9 @@ import requests
 import json
 
 
-class RestCountryApi:
-    BASE_URI = "https://restcountries.com/v1"
-    QUERY_SEPARATOR = ","
+class RestCountryApiV2:
+    BASE_URI = "https://restcountries.com/v2"
+    QUERY_SEPARATOR = ";"
 
     @classmethod
     def _get_country_list(cls, resource, term="", filters=None):
@@ -164,11 +164,6 @@ class RestCountryApi:
         """
         resource = "/capital"
         return cls._get_country_list(resource, capital, filters=filters)
-
-
-class RestCountryApiV2(RestCountryApi):
-    BASE_URI = "https://restcountries.com/v2"
-    QUERY_SEPARATOR = ";"
 
 
 class Country:
