@@ -168,9 +168,6 @@ class RestCountryApiV2:
 
 
 class Country:
-    def __str__(self):
-        return "{}".format(self.name)
-
     def __init__(self, country_data):
         self.top_level_domain = country_data.get("topLevelDomain")
         self.alpha2_code = country_data.get("alpha2Code")
