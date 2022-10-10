@@ -1,5 +1,6 @@
-import requests
 import json
+
+import requests
 
 
 class RestCountryApiV2:
@@ -36,7 +37,7 @@ class RestCountryApiV2:
 
         response = requests.get(uri)
         if response.status_code == 200:
-            result_list = []
+            result_list: list[Country] = []
             data = json.loads(response.text)  # parse json to dict
             if type(data) == list:
                 for (
@@ -47,7 +48,7 @@ class RestCountryApiV2:
                     country = Country(country_data)
                     result_list.append(country)
             else:
-                return Country(data)
+                result_list.append(Country(data))
             return result_list
         elif response.status_code == 404:
             raise requests.exceptions.InvalidURL
@@ -58,7 +59,7 @@ class RestCountryApiV2:
     def get_all(cls, filters=None):
         """Returns all countries provided by  restcountries.eu.
 
-            :param filters - a list of fields to filter the output of the request to include only the specified fields.
+        :param filters - a list of fields to filter the output of the request to include only the specified fields.
         """
         resource = "/all"
         return cls._get_country_list(resource, filters=filters)
@@ -106,7 +107,7 @@ class RestCountryApiV2:
         You can look those up at wikipedia: https://en.wikipedia.org/wiki/ISO_3166-1
         """
         resource = "/alpha"
-        return cls._get_country_list(resource, alpha, filters=filters)
+        return cls._get_country_list(resource, alpha, filters=filters)[0]
 
     @classmethod
     def get_countries_by_country_codes(cls, codes, filters=None):
@@ -167,9 +168,6 @@ class RestCountryApiV2:
 
 
 class Country:
-    def __str__(self):
-        return "{}".format(self.name)
-
     def __init__(self, country_data):
         self.top_level_domain = country_data.get("topLevelDomain")
         self.alpha2_code = country_data.get("alpha2Code")
